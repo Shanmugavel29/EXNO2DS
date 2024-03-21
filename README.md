@@ -1,6 +1,6 @@
 # EXNO2DS
-##Name: SHANMUGAVEL RM
-##Reg No: 212222230142
+## Name: SHANMUGAVEL RM
+## Reg No: 212222230142
 # AIM:
    To perform Exploratory Data Analysis on the given data set.
       
