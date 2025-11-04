@@ -1,8 +1,6 @@
 # EXNO2DS
-## Name: SHANMUGAVEL RM
-## Reg No: 212222230142
 # AIM:
-   To perform Exploratory Data Analysis on the given data set.
+      To perform Exploratory Data Analysis on the given data set.
       
 # EXPLANATION:
   The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
@@ -25,38 +23,106 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
 ## CODING AND OUTPUT
-<img width="902" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/1c921e54-8ab5-490a-bbb6-b9e0147bf026">
-<img width="865" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/09b2b60a-076d-44b9-a686-98504ee89e1f">
-<img width="917" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/b3841270-8f78-4466-8c24-0bd6ac8adf66">
-<img width="487" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/4c6af487-5f84-4be5-b450-a76c8b9be074">
-<img width="920" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/c61b63dd-64a9-4c2a-946c-7cf35ed30a8b">
-<img width="845" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/2222ad39-83e3-4a4c-afa4-8a4428a60f1a">
-<img width="864" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/386d8bf6-7b52-469d-8018-2edff6d5ce21">
-<img width="860" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/71921f93-e7df-4221-a4b5-74497a04be9c">
-<img width="747" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/e114cb32-4c8f-4636-b9e1-e9b9ecc544ca">
-<img width="825" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/2483e3a0-8ba8-4597-9a11-6987ab1c8e86">
-<img width="886" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/d8542d7c-f05a-4f17-a579-20c786f97a53">
-<img width="905" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/51d26e2f-00b6-48ea-b510-c75dc0dd21ef">
-<img width="884" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/3c70fb2a-0de7-4add-83bf-c474e793eca9">
-<img width="919" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/4886fd51-b40c-4050-8106-b5c77e3d4800">
-<img width="897" alt="image" src="https://github.com/1808charitha/EXNO2DS/assets/132996838/cc87347f-721a-42c7-8c9a-0c2364417063">
+```
+DONE BY : SHANMUGAVEL RM
+REG NO: 212222230142
+```
+
+```python
+import pandas as pd
+import numpy as np
+import seaborn as sns
+df=pd.read_csv('/content/titanic_dataset.csv')
+df.head()
+```
+<img width="1416" height="337" alt="image" src="https://github.com/user-attachments/assets/3b2e222e-ed5d-4ea7-a296-56758f301f7e" />
+
+```python
+df.info()
+```
+<img width="765" height="444" alt="image" src="https://github.com/user-attachments/assets/bd2e16c4-9364-439e-be3f-e246726bef68" />
+
+```python
+df.dtypes
+```
+<img width="1287" height="578" alt="image" src="https://github.com/user-attachments/assets/824a2d93-4033-4950-b27b-a5deea46352f" />
+
+```python
+df.describe()
+```
+<img width="1350" height="385" alt="image" src="https://github.com/user-attachments/assets/4c6e65b8-39af-4463-8955-29a0f1d693d8" />
 
 
+```python
+df["Age"].value_counts()
+```
+<img width="654" height="616" alt="image" src="https://github.com/user-attachments/assets/a67b1868-7920-4d35-ab15-8a52a486efb6" />
 
+```python
+df.shape
+```
+<img width="326" height="50" alt="image" src="https://github.com/user-attachments/assets/371b4427-20ca-4e89-bc0f-c0bccd5a25de" />
 
+```python
+df.set_index("PassengerId",inplace=True)
+df.describe()
+```
+<img width="947" height="383" alt="image" src="https://github.com/user-attachments/assets/4dba225c-d7de-494f-adbb-ea417f22476b" />
 
+```python
+df.nunique()
+```
+<img width="494" height="541" alt="image" src="https://github.com/user-attachments/assets/222a4123-ced9-4aae-b4e0-00b362714d05" />
 
+```python
+sns.countplot(data=df,x="Age")
+```
+<img width="858" height="584" alt="image" src="https://github.com/user-attachments/assets/92a92eb2-f9fa-4107-b2d5-a8cc82e64c95" />
 
+```python
+df.rename(columns={'Sex':'Gender'},inplace=True)
+df
+```
 
+<img width="1391" height="648" alt="image" src="https://github.com/user-attachments/assets/9edd209d-eca2-4b00-baf3-d3d327183ddb" />
 
+```python
+sns.catplot(x="Gender",col="Survived",kind="count",data=df,height=5,aspect=.7)
+```
 
+<img width="987" height="654" alt="image" src="https://github.com/user-attachments/assets/ffe1c5bc-7ef9-40e1-981f-e034ad7aa9aa" />
 
+```python
+df.boxplot(column="Age",by="Survived")
+```
+<img width="789" height="623" alt="image" src="https://github.com/user-attachments/assets/7a0bface-7e03-4c4a-8a00-7fb8ee1c9828" />
 
+```python
+sns.scatterplot(x=df["Age"],y=df["Fare"])
+```
+<img width="915" height="587" alt="image" src="https://github.com/user-attachments/assets/69ce96bb-c570-421f-911a-a4c9ca260908" />
 
+```python
+import matplotlib.pyplot as plt
+plt = sns.boxplot(ax=ax1,x='Pclass',y='Age',hue='Gender',data=df)
+```
+<img width="802" height="596" alt="image" src="https://github.com/user-attachments/assets/db83ec61-0906-448c-beba-54eb6f1f7016" />
 
+```python
+sns.catplot(x='Pclass',y='Age',hue='Gender',col='Survived',kind="box",data=df)
+```
+<img width="1401" height="644" alt="image" src="https://github.com/user-attachments/assets/bae866e2-3efa-47ba-90a9-c3ade0f9bdeb" />
 
+```python
+sns.catplot(data=df,col="Survived",x="Gender",hue="Pclass",kind="count")
+```
+<img width="1421" height="694" alt="image" src="https://github.com/user-attachments/assets/c872c712-7d0d-40a2-9042-8a0c85c3d9b8" />
 
-        
+```python
+corr = df.corr(numeric_only)
+sns.heatmap(corr, annot=True)
+```
+<img width="749" height="568" alt="image" src="https://github.com/user-attachments/assets/4c60fea4-2310-417a-b92c-295029ec2f16" />
 
 # RESULT
-          Thus the data analysis has been implemented succesfully.
+Hence performing Exploratory Data Analysis on the given data set is successfully executed.
